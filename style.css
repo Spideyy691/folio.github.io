@@ -1,0 +1,231 @@
+:root {
+  --background-color: #191919;
+  --main-color: #000;
+  --accent-color: #fff;
+  --text-color: #c0c0c0;
+}
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Header styles */
+header {
+  background-color: var(--main-color);
+  height: 200px; 
+  color: var(--accent-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 20px; 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav a {
+  padding: 15px 25px;
+  margin: 10px;
+  text-decoration: none;
+  color: var(--accent-color);
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  background-color: var(--accent-color);
+  color: var(--main-color);
+}
+
+/* Main styles */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Article styles */
+article {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+
+/* Form styles */
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+}
+
+button {
+  padding: 15px 25px; 
+  background-color: var(--main-color);
+  color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+  color: var(--main-color);
+}
+
+/* Footer styles */
+footer {
+  background-color: var(--main-color);
+  color: var(--accent-color);
+  text-align: center;
+  padding: 10px;
+}
+
+/* Sections */
+#accueil,
+#a-propos,
+#projets,
+#contact {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-text {
+  max-width: 600px;
+}
+
+/* Paragraph style */
+#accueil p,
+#a-propos p,
+#projets p,
+#contact p {
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+
+/* Profile picture */
+.profile-picture {
+  width: 200px;
+  height: 200px;
+  background-image: url('https://media.licdn.com/dms/image/D4E03AQGEfcl14m04Eg/profile-displayphoto-shrink_400_400/0/1706643333522?e=1712793600&v=beta&t=6aGHTkmHF2a8KOlUHyHpIoFi93r3Ca0GRwhWCshhDEs');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 8px solid #090909;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Cursor */
+.cursor {
+  width: 20px;
+  height: 20px;
+  background-color: #888;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  animation: cursorAnimation 0.3s infinite alternate;
+}
+
+@keyframes cursorAnimation {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Initial text animation */
+h1,
+nav a,
+p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+h1.active,
+nav a.active,
+p.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Vertical navigation */
+.vertical-nav {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  display: none; 
+  z-index: 999; 
+}
+
+.vertical-nav a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.vertical-nav a:hover {
+  transform: scale(1.1); 
+}
+
+/* Show vertical navigation when top buttons are not visible */
+@media screen and (max-width: 768px) {
+  .vertical-nav {
+    display: block;
+  }
+}
